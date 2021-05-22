@@ -7,6 +7,8 @@
 /public/bundles/
 /var/
 /vendor/
+db.session.sql
+.vscode
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
@@ -14,4 +16,4 @@
 .phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
-.db.session.sql
+
