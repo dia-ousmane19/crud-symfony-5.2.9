@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etudiant index{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Mes etudiants</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Image</th>
+                <th>Telephone</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for etudiant in etudiants %}
+            <tr class="text-center">
+                <td>{{ etudiant.nom }}</td>
+                <td>{{ etudiant.prenom }}</td>
+                <td>{{ etudiant.email }}</td>
+                <td  style="width: 10rem;height:5rem"><img class="img-thumbnail" src="{{asset('uploads/image/')}}{{ etudiant.image }}" alt="" > </td>
+                <td>{{ etudiant.numeroDeTelephone }}</td>
+                <td>
+                    <a href="{{ path('etudiant_show', {'id': etudiant.id}) }}">Afficher</a>
+                    <a href="{{ path('etudiant_edit', {'id': etudiant.id}) }}">Modifier</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="8">Aucun etudiant disponible</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('etudiant_new') }}">Ajouter un etudiant</a>
+</div>
+{% endblock %}
